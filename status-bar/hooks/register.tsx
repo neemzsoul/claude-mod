@@ -42,9 +42,13 @@ export const register: Register = on => {
     return result
   })
 
+  // Cloud sessions have no screen for the bar, but the chat itself reaches the
+  // app: there, post the line as a small notice at the end of each reply.
   on('turn.complete', async ($, e, next) => {
     const result = await next(e)
     await refresh($)
+    const hasScreen = (await $.session.surfaces()).length > 0
+    if (e.agentId === undefined && !hasScreen) $.ui.log(await read($, line))
     return result
   })
 

@@ -83,9 +83,12 @@ It shows as a line under the prompt and as a thin strip just above it (the deskt
 app draws the strip). It updates when a session starts, after every tool Claude uses, and at the end of
 every reply.
 
-**Where it shows:** Claude Code running on your own computer — the terminal, or the
-desktop app working on a local folder. In a cloud session (claude.ai/code, or the app
-watching a cloud session) the mod runs but there is nowhere for it to draw yet.
+**Where it shows:**
+- Claude Code on your own computer (the terminal, or the desktop app working on a
+  local folder): as a line under the prompt and a strip above it.
+- Cloud sessions (claude.ai/code, or the app watching a cloud session): the app has no
+  sticky spot for mods there, so instead the line is posted as a small grey note in
+  the chat at the end of each of Claude's replies.
 
 **Try it in a session:** ask Claude *"load the status-bar mod from
 github.com/neemzsoul/claude-mod"*. Claude copies it into the session's mods folder,
