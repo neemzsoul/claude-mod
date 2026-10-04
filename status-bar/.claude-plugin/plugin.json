@@ -1,6 +1,7 @@
 {
   "name": "status-bar",
   "version": "0.1.0",
+  "types": "./types/index.d.ts",
   "author": { "name": "neemzsoul" },
   "description": "Model, folder, context-used bar and session cost under the prompt — works in the Claude app, not just the terminal"
 }

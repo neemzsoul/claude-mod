@@ -79,8 +79,13 @@ github.com/neemzsoul/claude-mod to this repo's .claude folder"*.
 Opus 5.5 · my-project · ctx 🟡 ██████░░░░ 63% · $1.23
 ```
 
-It updates when a session starts, after every tool Claude uses, and at the end of
+It shows as a line under the prompt and as a thin strip just above it (the desktop
+app draws the strip). It updates when a session starts, after every tool Claude uses, and at the end of
 every reply.
+
+**Where it shows:** Claude Code running on your own computer — the terminal, or the
+desktop app working on a local folder. In a cloud session (claude.ai/code, or the app
+watching a cloud session) the mod runs but there is nowhere for it to draw yet.
 
 **Try it in a session:** ask Claude *"load the status-bar mod from
 github.com/neemzsoul/claude-mod"*. Claude copies it into the session's mods folder,
