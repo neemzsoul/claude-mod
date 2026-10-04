@@ -13,12 +13,24 @@ Opus · my-project  ctx ██████░░░░ 63%  · $1.23
   older parts of the chat, so it's a good time to start a fresh one.
 - **Cost** of this session so far (in US dollars)
 
+## Two versions
+
+| Version | Shows up in | Folder |
+|---|---|---|
+| **Status line** (the original) | Claude Code in a terminal only | `statusline.sh` |
+| **Status bar mod** (new) | The Claude app (desktop, web, phone) *and* the terminal | `status-bar/` |
+
+The Claude app doesn't draw terminal status lines, so if you follow sessions in the app,
+use the mod. Both show the same thing; in the mod the colour is a dot (🟢 🟡 🔴) in front
+of the bar, since the app shows plain text.
+
 ## Files
 
 | File | What it is |
 |---|---|
 | `statusline.sh` | The status line itself |
 | `install.sh` | Turns it on for your computer (backs up your old settings first) |
+| `status-bar/` | The mod version (see *Status bar mod* below) |
 | `cloud/settings.json` | Ready-made settings for using it in another repo's cloud sessions |
 
 ## Turn it on (your computer)
@@ -58,3 +70,28 @@ own computer's settings don't come along. Instead, put the mod *inside the repo*
 
 Easiest: open a session in that repo and tell Claude *"add my status line from
 github.com/neemzsoul/claude-mod to this repo's .claude folder"*.
+
+## Status bar mod (for the Claude app)
+
+`status-bar/` is a Claude Code mod (a plugin). It pins one line under the prompt:
+
+```
+Opus 5.5 · my-project · ctx 🟡 ██████░░░░ 63% · $1.23
+```
+
+It updates when a session starts, after every tool Claude uses, and at the end of
+every reply.
+
+**Try it in a session:** ask Claude *"load the status-bar mod from
+github.com/neemzsoul/claude-mod"*. Claude copies it into the session's mods folder,
+and the app asks once whether to turn on hot reloading. Pick **Enable for this
+session**.
+
+**In a terminal:** `claude --plugin-dir ~/claude-mod/status-bar`
+
+**Change how it looks:** the top of `status-bar/hooks/format.ts` has the same knobs
+as the shell version (`BAR_WIDTH`, `WARN_AT`, `DANGER_AT`, `FILLED`, `EMPTY`).
+`formatStatus` at the bottom decides what's shown and in what order.
+
+**Check it still works after a change:** `claude plugin validate status-bar` and
+`claude plugin test status-bar`.
